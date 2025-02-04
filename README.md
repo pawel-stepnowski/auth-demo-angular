@@ -2,6 +2,8 @@
 
 A project demonstrating the implementation of OAuth2 authentication using a modern technology stack. This demo showcases how to integrate multiple authentication providers, switch between logged-in accounts, and edit a simple user profile.
 
+The demo is available at [https://pawel-stepnowski.github.io/auth-demo-angular/](https://pawel-stepnowski.github.io/auth-demo-angular/).
+
 ## Technologies Used
 
 - **Angular** — Frontend framework for building dynamic web applications.
