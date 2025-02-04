@@ -1,0 +1,13 @@
+<div class="container py-5 text-center">
+    <div class="d-inline-flex flex-column justify-content-center gap-3">
+        <ng-container *ngIf="auth.client_info$ | async; else backendIsOffline">
+            @for (provider of auth.configuration.providers; track provider.id) 
+            {
+                <button auth-button [provider_id]="provider.constructor.name" [display_name]="provider.constructor.name" class="btn-primary" (click)="onClick(provider)"></button>
+            }
+        </ng-container>
+        <ng-template #backendIsOffline>
+            <div>Backend is offline.</div>
+        </ng-template>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<ng-container [ngSwitch]="auth.state">
+    <ng-container *ngSwitchCase="'in-process'" [ngTemplateOutlet]="inProcess"></ng-container>
+    <ng-container *ngSwitchCase="'signed-out'" [ngTemplateOutlet]="signedOut"></ng-container>
+    <ng-container *ngSwitchCase="'error'" [ngTemplateOutlet]="error"></ng-container>
+    <ng-container *ngSwitchDefault [ngTemplateOutlet]="signedIn"></ng-container>
+</ng-container>
+<ng-template #signedIn>
+    <div class="dropdown">
+        <ng-container *ngIf="auth.active_session$ | async as item; else selectAccount">
+            <button auth-button [provider_id]="item.identity.provider_id" [display_name]="item.account.display_name" class="btn-primary" data-bs-toggle="dropdown"></button>
+        </ng-container>
+        <ng-template #selectAccount>
+            <button class="btn btn-outline-primary shadow-sm" data-bs-toggle="dropdown">Select Account</button>
+        </ng-template>
+        <div class="dropdown-menu" style="right: 0; left: unset;">
+            <div class="container">
+                <button class="btn dropdown-item" routerLink="/profile">Edit Profile</button>
+                <button class="btn dropdown-item" (click)="signOut()">Sign Out</button>
+            </div>
+            <div class="dropdown-divider"></div>
+            <h6 class="dropdown-header">Signed In Accounts</h6>
+            <div class="container gap-3 ">
+                @for (item of auth.sessions$ | async; track item.session.id)
+                {
+                    <button auth-button [provider_id]="item.identity.provider_id" [display_name]="item.account.display_name" class="btn-secondary m-1" (click)="setActiveSession(item)"></button>
+                }
+            </div>
+            <div class="dropdown-divider"></div>
+            <button class="btn dropdown-item" routerLink="/sign-in">Sign in another account</button>
+        </div>
+    </div>
+</ng-template>
+<ng-template #signedOut>
+    <button class="btn btn-outline-primary" type="submit" routerLink="sign-in" aria-disabled="true">Sign In</button><!-- disabled placeholder -->
+</ng-template>
+<ng-template #inProcess>
+    <button class="btn btn-secondary float-end" type="button" disabled>
+        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+    </button>
+</ng-template>
+<ng-template #error>
+    <button class="btn btn-secondary float-end" type="button" (click)="connect()">Connection Error</button>
+</ng-template>
