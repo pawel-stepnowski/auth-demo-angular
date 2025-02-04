@@ -3,7 +3,7 @@
         <ng-container *ngIf="auth.client_info$ | async; else backendIsOffline">
             @for (provider of auth.configuration.providers; track provider.id) 
             {
-                <button auth-button [provider_id]="provider.constructor.name" [display_name]="provider.constructor.name" class="btn-primary" (click)="onClick(provider)"></button>
+                <button auth-button [provider_id]="provider.$type.name" [display_name]="provider.$type.name" class="btn-primary" (click)="onClick(provider)"></button>
             }
         </ng-container>
         <ng-template #backendIsOffline>

@@ -1,4 +1,4 @@
-import * as AuthenticationProviders from '@liquescens/auth-js';
+import * as Auth from '@liquescens/auth-js';
 
 export const environment = 
 {
@@ -9,9 +9,9 @@ export const environment =
         redirect_uri: 'https://auth-demo-express-1011928235427.us-central1.run.app/auth',
         providers:
         [
-            new AuthenticationProviders.Google({ client_id: '1011928235427-2qva1pc8n3ndo2karcj8fmcj9co9oqgq.apps.googleusercontent.com' }),
-            new AuthenticationProviders.Microsoft({ client_id: 'c695c89f-4436-4632-b3fe-618c267fdab1' }),
-            new AuthenticationProviders.GitHub({ client_id: 'Ov23liGiNn3DINufXENW' }),
+            new Auth.OAuth2.Google({ client_id: '1011928235427-2qva1pc8n3ndo2karcj8fmcj9co9oqgq.apps.googleusercontent.com' }),
+            new Auth.OAuth2.Microsoft({ client_id: 'c695c89f-4436-4632-b3fe-618c267fdab1' }),
+            new Auth.OAuth2.GitHub({ client_id: 'Ov23liGiNn3DINufXENW' }),
         ]
     }
 };

@@ -1,5 +1,5 @@
+import * as Auth from '@liquescens/auth-js';
 import { Component, inject } from '@angular/core';
-import * as AuthenticationProviders from '@liquescens/auth-js';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { AuthButton, Authentication } from '@liquescens/auth-angular';
 
@@ -18,7 +18,7 @@ export class SignInViewComponent
   {
   }
 
-  onClick(provider: AuthenticationProviders.OAuth2)
+  onClick(provider: Auth.OAuth2.Provider)
   {
     provider.authenticate(this.auth.configuration.redirect_uri);
   }
