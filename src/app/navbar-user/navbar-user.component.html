@@ -1,4 +1,4 @@
-<ng-container [ngSwitch]="auth.state">
+<ng-container [ngSwitch]="auth.state.name">
     <ng-container *ngSwitchCase="'in-process'" [ngTemplateOutlet]="inProcess"></ng-container>
     <ng-container *ngSwitchCase="'signed-out'" [ngTemplateOutlet]="signedOut"></ng-container>
     <ng-container *ngSwitchCase="'error'" [ngTemplateOutlet]="error"></ng-container>

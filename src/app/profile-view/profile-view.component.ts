@@ -38,7 +38,7 @@ export class ProfileViewComponent implements OnInit
 
   async ngOnInit()
   {
-    await this.auth.requestProfile();
+    if (this.auth.service) await this.auth._requestProfile(this.auth.service);
   }
 
   async save()
