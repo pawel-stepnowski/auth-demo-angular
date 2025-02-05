@@ -20,6 +20,6 @@ export class SignInViewComponent
 
   onClick(provider: Auth.OAuth2.Provider)
   {
-    provider.authenticate(this.auth.configuration.redirect_uri);
+    provider.authenticate(this.auth.service.configuration.redirect_uri);
   }
 }
