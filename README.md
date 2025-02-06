@@ -21,7 +21,7 @@ The demo is available at [https://pawel-stepnowski.github.io/auth-demo-angular/]
 
 ## Components
 
-- **[auth-js](https://github.com/pawel-stepnowski/auth)** - JavaScript implementation of client-side authentication.
+- **[auth-js](https://github.com/pawel-stepnowski/auth-js)** - JavaScript implementation of client-side authentication.
 - **[auth-nodejs](https://github.com/pawel-stepnowski/auth-nodejs)** - JavaScript implementation of server-side authentication.
 - **[auth-angular](https://github.com/pawel-stepnowski/auth-angular)** - A project adapting the **auth-js** library for use in the **Angular**.
 - **[auth-demo-express](https://github.com/pawel-stepnowski/auth-demo-express)** - Example of using **auth-nodejs** as a Cloud Run service.
